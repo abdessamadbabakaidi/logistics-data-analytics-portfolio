@@ -1,0 +1,4 @@
+--- Average miles per trip---
+create view average_miles as 
+select  round(avg(miles),0)as avg_miles 
+from acj

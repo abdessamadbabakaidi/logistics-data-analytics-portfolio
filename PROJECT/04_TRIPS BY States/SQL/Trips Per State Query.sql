@@ -1,0 +1,15 @@
+create view stateVStrips as 
+
+with states as (
+select count(Destination_city)as number
+,Destination_city,
+right(Destination_city,2)as state
+from acj
+where miles > 100
+and Destination_city not like '%_IL'
+group by DEstination_city
+)
+select state,sum(number) number_of_trips
+from states
+group by state
+order by number_Of_trips DESc
